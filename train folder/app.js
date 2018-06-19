@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
     controller.captureFormFields();
     model.initialDatabasePull();
     setInterval(function () { model.initialDatabasePull() }, 60000);
@@ -6,7 +6,7 @@ $(document).ready(function(){
     setInterval(function () { view.updateCurrentTime() }, 1000);
 
 });
-var view= {
+var view = {
     updateTrainScheduleTable: () => {
 
         controller.convertFrequency();
@@ -27,11 +27,6 @@ var view= {
         $('.currentTime').text(moment().format('h:mm:ss A'))
     }
 };
-
-// This is where all the data and global variables will 
-// live for the project
-
-// Initialize Firebase
 var config = {
     apiKey: "AIzaSyDQwcCAHpNyg0eMj6Z37JraYvu8DuWEVvQ",
     authDomain: "train-project-c09d9.firebaseapp.com",
@@ -43,8 +38,6 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-
-// Form Variables to be passed between objects
 var trainNumber;
 var trainLine;
 var trainDestination;
@@ -56,16 +49,9 @@ var trainTiming;
 var trainPlatform;
 var currentTime = moment()
 console.log('CURRENT TIME: ' + moment(currentTime).format('hh:mm:ss A'));
-
-// model object with functions for pulling/pushing new data to the database
-
 var model = {
-
     pushNewTrain: () => {
-
-
         database.ref().push({
-
             trainDeparture: trainDeparture,
             trainDestination: trainDestination,
             trainFrequency: trainFrequency,
@@ -154,35 +140,23 @@ let controller = {
 
         });
     },
-
-    // Time Calculation functions 
-
     nextArrival: () => {
-        // First Time (pushed back 1 year to make sure it comes before current time)
+
         var trainDepartureCoverted = moment(trainDeparture, "hh:mm").subtract(1, 'years');
-        // get Current Time
         var currentTime = moment();
-        //difference between the times
         var diffTime = moment().diff(moment(trainDepartureCoverted), "minutes");
-        // Time apart (remainder)
         var timeRemainder = diffTime % trainFrequency;
-        //minutes until Train
         var timeInMinutesTillTrain = trainFrequency - timeRemainder;
-        //Next Train
         nextTrain = moment().add(timeInMinutesTillTrain, 'minutes');
         nextTrain = moment(nextTrain).format('h:mm A');
     },
 
     minutesAway: () => {
-        // First Time (pushed back 1 year to make sure it comes before current time)
+
         var trainDepartureCoverted = moment(trainDeparture, "hh:mm").subtract(1, 'years');
-        //Current Time
         var currentTime = moment();
-        //difference between the times
         var diffTime = moment().diff(moment(trainDepartureCoverted), "minutes");
-        // Time apart (remainder)
         var timeRemainder = diffTime % trainFrequency;
-        //minutes until Train
         minutesAway = trainFrequency - timeRemainder;
         minutesAway = moment().startOf('day').add(minutesAway, 'minutes').format('HH:mm');
         return moment(minutesAway).format('HH:mm');
@@ -192,7 +166,7 @@ let controller = {
     }
 
 };
-moment.createFromInputFallback = function(config) { config._d = new Date(config._i); };
+moment.createFromInputFallback = function (config) { config._d = new Date(config._i); };
 
 
 
