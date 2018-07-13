@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <title>Party Finder</title>
+
+    <!--bootstrap library-->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="icon" type="ico" href="assets/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <!--Jquery library-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script>
+        jQuery.ajaxPrefilter(function (options) {
+            if (options.crossDomain && jQuery.support.cors) {
+                options.url = 'https://uncc-cors-proxy.herokuapp.com/' + options.url;
+            }
+        });
+    </script>
+
+
+    <!--addingFireBase-->
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+
+    <style>
+        #map {
+            height: 80%;
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            border-right: 5px dashed red;
+            border-left: 5px dashed red;
+            border-top: 5px dashed red;
+            border-bottom: 5px dashed red;
+            background: black;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="leftNav">
+        <button id="joinParty" class="btn-lg waves-effect waves-red "> <a href="#heddinwun" id="thisOff"> Join A Party</a> </button>
+        <button a href="#! " class="btn-lg waves-effect waves-red "> Login to Host</button>
+        <button id="createParty" a href="#! " class="btn-lg waves-effect waves-red "> Create-Party</button>
+    </div>
+</nav>
+
+<nav>
+ <div class="rightNav">
+    <div class="social-networks">
+     <a href="#" class="twitter">
+        <i class="fa fa-twitter">
+        </i>
+     </a>                  
+    <a href="#">
+        <i class="fa fa-facebook">    
+        </i>
+    </a>
+    <a href="#" class="snapchat">
+        <i class="fa fa-snapchat">
+            
+        </i>
+    </a>
+    </div>
+
+ </div>
+</nav>
+</header>
+
+
+
+    <div class="jumbotron jumbotron-fluid" id="myJtron">
+    </div>
+
+    <form id="modalForm">
+        <h2> Name </h2>
+        <input type="text">
+        <h2> Age </h2>
+        <input type="text">
+        <h2> Gender</h2>
+        <input type="text">
+        <h2> Price</h2>
+        <input type="text">
+        <br>
+        <button> Submit</button>
+    </form>
+
+    <form id="loginForm">
+        <h2> UserName</h2>
+        <input type="text">
+        <br>
+        <h2> Password </h2>
+        <input type="Password">
+        <br>
+        <button class="submitBtn"> submit </button>
+
+    </form>
+
+   
+    <form id="PartyCreationForm">
+        <h2> Address </h2>
+        <input type="text" id="userAddress" required>
+        <h2> Max Capacity </h2>
+        <input type="text" id="userCapacity" required>
+        <h2> City</h2>
+        <input type="text" id="city" required>
+        <h2> State</h2>
+        <input type="text" id="state" required>
+        <button id="submitBtnParty" "a href="#! " class="btn-lg waves-effect waves-red ""> SUBMIT</button>
+        <h2 class="xBtn"> X </h2>
+
+    </form>
+
+<br> 
+<h1 class="HeadingOne" id="heddinwun"> Current Parties</h1>
+<hr>
+
+
+
+    <div>
+        <table>
+            <tr>
+                <th> Date-Added</th>
+                <th> Capacity</th>
+                <th> State</th>
+                <th> Address</th>
+                <th> City</th>
+            </tr>
+            
+            <tbody id="tableRowAppend"></tbody>
+        </table>
+    </div>
+
+    <div id="map"></div>
+
+
+    <!--smth-->
+
+
+
+
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-sqrgZQhEVzmza4QVPrgFp1nOd145WHU&callback=initMap">
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+body {
+    background-color: black;
+
+}
+.jumbotron {
+    background-color: red;
+font-display: red;
+backface-visibility: hidden;
+padding: 42rem 2rem;
+font-size: 25px;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.container {
+    background-color:black;
+    font-display: red;
+    
+}
+.mainArea {
+    background-color: black;
+}
+h1 {
+    background-color: red;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-size: 45px;
+}
+p {
+    background-color: red;
+}
+.row {
+    background-color: black;
+}
+style {
+    background-color: black; 
+} 
+.text-center {
+    font-size: 40px;
+}

@@ -1,0 +1,29 @@
+.jumbotron{
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: lucida console;
+}
+
+.form-inline{
+    background-color: black;
+    color: crimson;
+    text-align: center;
+    font-family: lucida console;
+}
+
+.btn-group-inline-pull-left {
+    background-color: black;
+    color: crimson;
+font-family: lucida console;
+}
+
+.btn-primary{
+    background-color: black;
+    color: crimson;
+font-family: lucida console;
+}
+body {
+    background-color: crimson;
+
+}
